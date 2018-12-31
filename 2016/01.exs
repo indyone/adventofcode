@@ -1,4 +1,5 @@
 defmodule AdventOfCode2016.Day01 do
+
   @moduledoc """
   ## Day 1: No Time for a Taxicab
 
@@ -54,18 +55,17 @@ defmodule AdventOfCode2016.Day01 do
   end
 
   defp move(input), do: Enum.reduce(input, {:north, 0, 0}, &move/2)
-  defp move("L" <> step, {:north, x, y}), do: {:west, x, y + int(step)}
+  defp move("L" <> step, {:north, x, y}),do: {:west, x, y + int(step)}
   defp move("L" <> step, {:west, x, y}),  do: {:south, x - int(step), y}
-  defp move("L" <> step, {:south, x, y}), do: {:east, x, y - int(step)}
+  defp move("L" <> step, {:south, x, y}),do: {:east, x, y - int(step)}
   defp move("L" <> step, {:east, x, y}),  do: {:north, x + int(step), y}
-  defp move("R" <> step, {:north, x, y}), do: {:east, x, y - int(step)}
+  defp move("R" <> step, {:north, x, y}),do: {:east, x, y - int(step)}
   defp move("R" <> step, {:east, x, y}),  do: {:south, x - int(step), y}
-  defp move("R" <> step, {:south, x, y}), do: {:west, x, y + int(step)}
+  defp move("R" <> step, {:south, x, y}),do: {:west, x, y + int(step)}
   defp move("R" <> step, {:west, x, y}),  do: {:north, x + int(step), y}
 
   defp int(string), do: String.to_integer(string)
 
-  defp blocks_away({_, x, y}), do: abs(x) + abs(y)
 
 end
 
